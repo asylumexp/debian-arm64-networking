@@ -12,7 +12,7 @@ jobs:
 
       - name: Add Zabbly Repository
         run: |
-          mkdir -p /etc/apt/keyrings/ && curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
+          sudo mkdir -p /etc/apt/keyrings/ && sudo curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
 
       - name: Install dependencies
         run: |
