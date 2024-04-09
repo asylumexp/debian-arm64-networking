@@ -1,14 +1,14 @@
 name: build
 
 on:
-  push: {}  # Trigger on any push event (pushes to any branch)
+  push: {}
   workflow_dispatch: {}
 
 jobs:
-  build:  # Job name, customize as needed
-    runs-on: buildjet-4vcpu-ubuntu-2204-arm # This will use the latest Ubuntu runner (which is currently 22.04)
+  build:
+    runs-on: buildjet-4vcpu-ubuntu-2204-arm #
     steps:
-      - uses: actions/checkout@v3  # Checks out your code from the repository
+      - uses: actions/checkout@v4
 
       - name: Add Zabbly Repository
         run: |
@@ -20,9 +20,9 @@ jobs:
 
       - name: Build your project
         run: |
-          distrobuilder build-lxc debian.yml ./build -o image.architecture=amd64 -o image.release=bookworm -o image.variant=stable -o source.url="http://ftp.us.debian.org/debian"
+          sudo distrobuilder build-lxc debian.yml ./build -o image.architecture=amd64 -o image.release=bookworm -o image.variant=stable -o source.url="http://ftp.us.debian.org/debian"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: build-files  # Customize the artifact name
-          path: ./build  # Specify the path to your build directory
+          name: build-files
+          path: ./build
