@@ -2,13 +2,11 @@ name: build
 
 on:
   push: {}  # Trigger on any push event (pushes to any branch)
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch: {}
 
 jobs:
   build:  # Job name, customize as needed
-    runs-on: ubuntu-latest-arm64 # This will use the latest Ubuntu runner (which is currently 22.04)
+    runs-on: buildjet-4vcpu-ubuntu-2204-arm # This will use the latest Ubuntu runner (which is currently 22.04)
     steps:
       - uses: actions/checkout@v3  # Checks out your code from the repository
 
