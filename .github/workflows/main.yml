@@ -10,6 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install debootstrap
+        run: |
+          sudo wget 'https://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.124_all.deb' && dpkg -i debootstrap_*.*.*_all.deb
+
       - name: Add Zabbly Repository
         run: |
           sudo mkdir -p /etc/apt/keyrings/ && sudo curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc && ls && sudo wget https://pst.innomi.net/paste/7qwsauor9zn7dwtnwoe593ob/raw -O /etc/apt/sources.list.d/zabbly-incus-stable.sources
