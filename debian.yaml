@@ -1337,19 +1337,19 @@ actions:
   #   releases:
   #   - bullseye
 
-  - trigger: post-packages
-    action: |-
-      #!/bin/sh
-      set -eu
+  # - trigger: post-packages
+  #   action: |-
+  #     #!/bin/sh
+  #     set -eu
 
-      systemctl enable systemd-networkd.socket
-      systemctl enable systemd-networkd.service
-    types:
-      - container
-    variants:
-      - default
-    releases:
-      - bullseye
+  #     systemctl enable systemd-networkd.socket
+  #     systemctl enable systemd-networkd.service
+  #   types:
+  #     - container
+  #   variants:
+  #     - default
+  #   releases:
+  #     - bullseye
 
   # - trigger: post-packages
   #   action: |-
@@ -1398,21 +1398,21 @@ actions:
   #     - sid
   #     - trixie
 
-  - trigger: post-packages
-    action: |-
-      #!/bin/sh
-      set -eux
+  # - trigger: post-packages
+  #   action: |-
+  #     #!/bin/sh
+  #     set -eux
 
-      # Disable networkd
-      systemctl disable systemd-networkd.service
-    types:
-      - vm
-    variants:
-      - cloud
-    releases:
-      - bullseye
-      - bookworm
-      - sid
+  #     # Disable networkd
+  #     systemctl disable systemd-networkd.service
+  #   types:
+  #     - vm
+  #   variants:
+  #     - defualt
+  #   releases:
+  #     - bullseye
+  #     - bookworm
+  #     - sid
 
   # - trigger: post-packages
   #   action: |-
