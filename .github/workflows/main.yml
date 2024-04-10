@@ -12,7 +12,7 @@ jobs:
 
       - name: Install debootstrap
         run: |
-          sudo wget 'https://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.123+deb11u2_all.deb' && dpkg -i debootstrap_*.*.*_all.deb
+          sudo wget 'https://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.123+deb11u2_all.deb' && sudo dpkg -i debootstrap_*.*.*_all.deb
 
       - name: Add Zabbly Repository
         run: |
