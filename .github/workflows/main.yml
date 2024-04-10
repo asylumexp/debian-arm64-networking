@@ -12,7 +12,7 @@ jobs:
 
       - name: Add Zabbly Repository
         run: |
-          sudo mkdir -p /etc/apt/keyrings/ && sudo curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc && ls && curl -fsSL https://pst.innomi.net/paste/7qwsauor9zn7dwtnwoe593ob/raw > /tmp/zabbly-incus-stable.sources
+          sudo mkdir -p /etc/apt/keyrings/ && sudo curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc && ls && curl -fsSL https://pst.innomi.net/paste/7qwsauor9zn7dwtnwoe593ob/raw > /etc/apt/sources.list.d/zabbly-incus-stable.sources
 
       - name: Install dependencies
         run: |
@@ -20,7 +20,7 @@ jobs:
 
       - name: Build your project
         run: |
-          sudo distrobuilder build-lxc $GITHUB_WORKSPACE/debian.yml ./build -o image.architecture=amd64 -o image.release=bookworm -o image.variant=stable -o source.url="http://ftp.us.debian.org/debian"
+          sudo distrobuilder build-lxc $GITHUB_WORKSPACE/debian.yaml ./build -o image.architecture=amd64 -o image.release=bookworm -o image.variant=stable -o source.url="http://ftp.us.debian.org/debian"
 
       - uses: actions/upload-artifact@v4
         with:
