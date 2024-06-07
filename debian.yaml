@@ -1175,10 +1175,12 @@ packages:
         - procps
         - sudo
         - vim
+        - netcat-openbsd
       action: install
 
     - packages:
         - ifupdown
+        - netcat-openbsd
       action: install
       releases:
         - buster
